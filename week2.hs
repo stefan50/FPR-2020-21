@@ -14,7 +14,7 @@ inside a b x = if (x >= a && x <= b) then True else False
 
 -- Задача 2.​ Да се дефинира функция ​sumSquares a b​, 
 -- която намира сумата на квадратите на числата a и b
-sumSquares :: Integer -> Integer -> Integer
+sumSquares :: Double -> Double -> Double
 sumSquares a b = a ^ 2 + b ^ 2
 
 -- Задача 3.​ Да се дефинира функция ​average a b​, 
@@ -28,6 +28,8 @@ average' a b = (fromIntegral a + fromIntegral b) / 2
 -- Задача 4.​  Да се дефинира функция ​squaresAverage a b​, 
 -- която намира средно аритметичното на квадратите на a и b 
 -- HW
+squaresAverage :: Double -> Double -> Double 
+squaresAverage a b = (sumSquares a b) / 2.0
 
 -- Задача 5.​ Да се дефинира функция ​myMin x y​, 
 -- която връща минималния от двата си аргумента
@@ -47,10 +49,25 @@ myFact' n = product [1..n] -- [1..n] = [1, 2, 3, ..., n]
 -- която пресмятафакториела на числото n чрез ​итеративен ​процес
 -- Задача 8.​ Да се дефинира функция ​myFib n​, 
 -- която връща n-тото число от редицата на Фибоначи 
+-- n = fib(n-1) + fib(n-2)
+myFib :: Int -> Int
+myFib 0 = 1 -- if(n == 0) return 1;
+myFib 1 = 1
+myFib n = myFib (n-1) + myFib (n-2)
+    where
+        one :: Int 
+        one = 1
 -- (редицата е 1, 1, 2, 3, 5, ... и е индексирана от 0)
 -- Задача 9.​ Да се дефинира функция ​myFibIter n​, 
 -- която връща n-тото число отредицата на Фибоначи чрез ​итеративен ​процес
 -- Задача 10.​ Да се дефинира функция ​myGcd a b​, която връща НОД(a, b)
+myGcd :: Int -> Int -> Int 
+myGcd a b
+   | a == 0    = a
+   | b == 0    = b
+   | a == b    = a
+   | a > b     = myGcd b (a-b)
+   | otherwise = myGcd a (b-a)
 
 
 -- Задача 1.​ Да се дефинира функция ​countDigits​, 
@@ -123,4 +140,5 @@ main = do
     print (countDigits' (-234))
     print (sumDigits' 234)
     print (testPattern'' 7)
+    print (myGcd 15 25)
     -- sqrt, 
