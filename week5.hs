@@ -37,7 +37,7 @@ addNums x y = x + y
 
 -- Задача 4.​ Да се дефинира функция ​xSquaredPlusOne :: Int -> Int​, която пресмята ​x^2 + 1​, ползвайки композиция на функции.
 xSquaredPlusOne :: Int -> Int 
-xSquaredPlusOne = (\ x -> x + 1) . (\ x -> x^2)
+xSquaredPlusOne = (\ x -> x + 1) . (\ x -> x^2) -- f . g <-> f(g(x))
 -- Задача 5.​ Да се дефинира функция ​xPlusOneSquared :: Int -> Int​, която пресмята ​(x+1)^2​, ползвайки композиция на функции.
 xPlusOneSquared :: Int -> Int
 xPlusOneSquared = (\ x -> x^2) . (\ x -> x + 1) 
@@ -55,3 +55,4 @@ main = do
     print (xPlusOneSquared 5)
     -- f(x, y)
     -- f(x, y) = f(2, y) = z(y)
+    
